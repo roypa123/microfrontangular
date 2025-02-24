@@ -17,7 +17,7 @@ export class Mfe1Component implements OnInit {
   sendMessage() {
     //this.eventBus.sendEvent('message', 'Hello from MFE1!');
 
-    this.eventBus.emitEvent({ message: 'Hello from MFE1' });
+    this.eventBus.sendEvent("message","hi from ");
   }
 
 }

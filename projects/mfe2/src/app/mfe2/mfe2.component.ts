@@ -10,7 +10,7 @@ import { EventBusService } from 'projects/shell/src/app/shared/event-bus.service
 export class Mfe2Component implements OnInit{
   receivedMessage = '';
 
-  constructor(private eventBus: EventBusService, private cdRef: ChangeDetectorRef) { }
+  constructor(private eventBus: EventBusService) { }
 
   // ngOnInit() {
   //   this.receivedMessage = "ddd"
@@ -32,22 +32,20 @@ export class Mfe2Component implements OnInit{
   // }
 
   ngOnInit() {
-    this.eventBus.getEvents().subscribe(data => {
-      if (data) {
-        console.log('Received in MFE2:', data);
-        // this.receivedData = data;
-        this.cdRef.detectChanges(); // ✅ Force UI update
-      }
-    });
+    setTimeout(() => {
+      this.eventBus.getEvents().subscribe(eventData => {
+        console.log('Event received:', eventData);
+      });
+    }, 0);
   }
 
-  // ngAfterViewInit() { // ✅ Runs after view is initialized
-  //   this.eventBus.getEvents().subscribe(data => {
-  //     if (data) {
-  //       console.log('Received in MFE2:', data);
-  //       this.receivedMessage = data;
-  //     }
-  //   });
-  // }
+  sendMessage() {
+    this.eventBus.sendEvent("message","hi from tin ");
+  }
+
+
+
+
+
 
 }
