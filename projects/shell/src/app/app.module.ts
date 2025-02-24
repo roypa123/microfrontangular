@@ -4,7 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ManuComponent } from './manu/manu.component';
+
+import { HttpClientModule } from '@angular/common/http';
 import { EventBusService } from './shared/event-bus.service';
+import { SomeOtherService } from './shared/some-other.service';
 
 
 @NgModule({
@@ -16,8 +19,8 @@ import { EventBusService } from './shared/event-bus.service';
     BrowserModule,
     AppRoutingModule
   ],
-  //providers: [EventBusService],
-  providers: [],
+  providers: [EventBusService],
+  //providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

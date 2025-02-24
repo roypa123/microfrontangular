@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ChangeDetectorRef, NgZone } from '@angular/core';
 import { EventBusService } from 'projects/shell/src/app/shared/event-bus.service';
 
 
@@ -11,30 +11,24 @@ import { EventBusService } from 'projects/shell/src/app/shared/event-bus.service
 export class Mfe2Component implements OnInit{
   receivedMessage = '';
 
-  constructor(private eventBus: EventBusService) { }
-
-  // ngOnInit() {
-  //   this.receivedMessage = "ddd"
-  //   this.eventBus.getEvents().subscribe(data => {
-  //     console.log("manu");
-  //     // console.log(event)
-  //     // if (event.event === 'message') {
-  //     //   console.log('MFE2 received:', event.data); // Debugging
-  //     //   this.receivedMessage = event.data;
-  //     // }
-  //   });
-  // }
-
-
-
+  constructor(private eventBus: EventBusService, private ngZone: NgZone) { }
 
   ngOnInit() {
-    setTimeout(() => {
-      this.eventBus.getEvents().subscribe(eventData => {
-        console.log('Event received:', eventData);
-        this.receivedMessage = eventData.data;
+    this.ngZone.run(() => {
+      this.eventBus.getEvents().subscribe((eventData) => {
+        console.log("Event received:", event);
+        // Handle the event here
       });
-    }, 0);
+    });
+
+
+
+    // setTimeout(() => {
+    //   this.eventBus.getEvents().subscribe(eventData => {
+    //     console.log('Event received:', eventData);
+    //     this.receivedMessage = eventData.data;
+    //   });
+    // }, 0);
   }
 
 

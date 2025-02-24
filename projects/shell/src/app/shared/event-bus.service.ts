@@ -11,35 +11,11 @@ interface EventData {
   providedIn: 'root'
 })
 export class EventBusService {
-  // private eventSubject = new Subject<{ event: string, data: any }>();
 
-  //private eventSubject = new BehaviorSubject<any>(null); //
 
   private eventSubject = new Subject<EventData>();
 
   constructor() { }
-
-  // sendEvent(event: string, data: any) {
-  //   console.log("hello");
-  //   console.log("Event sent:", data);
-
-  //   //this.eventSubject.next({ event, data });
-
-  //   this.eventSubject.next(data);
-  // }
-
-  // getEvents() {
-  //   return this.eventSubject.asObservable();
-  // }
-
-  // emitEvent(data: any) {
-  //   console.log(data);
-  //   this.eventSubject.next(data);
-  // }
-
-  // getEvents(): Observable<any> {
-  //   return this.eventSubject.asObservable();
-  // }
 
   // Method to send an event
   sendEvent(event: string, data: any): void {
