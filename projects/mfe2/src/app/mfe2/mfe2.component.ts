@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit, ChangeDetectorRef } from '@angular/co
 import { EventBusService } from 'projects/shell/src/app/shared/event-bus.service';
 
 
+
 @Component({
   selector: 'app-mfe2',
   templateUrl: './mfe2.component.html',
@@ -25,27 +26,16 @@ export class Mfe2Component implements OnInit{
   // }
 
 
-  // ngOnInit() {
-  //   this.eventBus.getEvents().subscribe(data => {
-  //     console.log('Received in MFE2:', data); // ✅ Data from MFE1 received here
-  //   });
-  // }
+
 
   ngOnInit() {
     setTimeout(() => {
       this.eventBus.getEvents().subscribe(eventData => {
         console.log('Event received:', eventData);
+        this.receivedMessage = eventData.data;
       });
     }, 0);
   }
-
-  sendMessage() {
-    this.eventBus.sendEvent("message","hi from tin ");
-  }
-
-
-
-
 
 
 }

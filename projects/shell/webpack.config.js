@@ -8,8 +8,9 @@ module.exports = withModuleFederationPlugin({
   },
 
   shared: {
-    "src/app/shared/event-bus.service.ts": { singleton: true, eager: true },
-    ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' }),
+    //"projects/shell/src/app/shared/event-bus.service.ts": { singleton: true, eager: true },
+    "projects/shell/src/app/shared/event-bus.service.ts": { singleton: true },
+    ...shareAll({ singleton: true, strictVersion: false, requiredVersion: 'auto' }),
   },
 
 });

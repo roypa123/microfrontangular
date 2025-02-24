@@ -16,7 +16,8 @@ import { EventBusService } from './shared/event-bus.service';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [EventBusService],
+  //providers: [EventBusService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

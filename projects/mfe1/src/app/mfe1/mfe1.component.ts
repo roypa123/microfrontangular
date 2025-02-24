@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EventBusService } from 'projects/shell/src/app/shared/event-bus.service';
 
 
+
 @Component({
   selector: 'app-mfe1',
   templateUrl: './mfe1.component.html',
@@ -9,13 +10,23 @@ import { EventBusService } from 'projects/shell/src/app/shared/event-bus.service
 })
 export class Mfe1Component implements OnInit {
 
+  receivedMessage = '';
+
   constructor(private eventBus: EventBusService) { }
 
-  ngOnInit(): void {
+
+
+  ngOnInit() {
+    // setTimeout(() => {
+    //   this.eventBus.getEvents().subscribe(eventData => {
+    //     console.log('Event received:', eventData);
+    //     this.receivedMessage = eventData.data;
+    //   });
+    // }, 0);
   }
 
   sendMessage() {
-    //this.eventBus.sendEvent('message', 'Hello from MFE1!');
+
 
     this.eventBus.sendEvent("message","hi from ");
   }
