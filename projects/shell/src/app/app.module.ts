@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ManuComponent } from './manu/manu.component';
+import { EventBusService } from './shared/event-bus.service';
+
 
 @NgModule({
   declarations: [
@@ -14,7 +16,7 @@ import { ManuComponent } from './manu/manu.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [EventBusService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
